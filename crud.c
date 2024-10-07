@@ -10,7 +10,12 @@
 
 int main() {
   for(;;) {
-    system("clear");
+    #ifdef _WIN32
+      system("cls");
+    #elif defined(unix) || defined(__unix__) || defined(__unix)
+      system("clear");
+    #endif
+
     printf("---------- MENU ----------\n");
     printf("1. Show\n");
     printf("2. Create\n");
